@@ -1,0 +1,48 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-feb-2019, 13:16:28
+    Author     : daw2
+*/
+#headerSpan{
+    font-family: 'Cinzel', serif;
+}
+#headerTd{
+    font-family: 'Cinzel', serif;    
+}
+#headerTema2{
+    font-family: 'Cinzel', serif; 
+    font-size: 90%;
+}
+#menuMain{
+    width: 100%;
+}
+footer div{
+    width: 100%;
+}
+#foto{
+    width: 71%;
+    text-align: center;
+}
+#foto img{
+    width: 100%;    
+    margin-top: 1%;
+    margin-left: 2%;
+}
+footer{    
+    width: 100%;    
+}
+footer span{
+    color: white;
+}
+footer a {
+    color: white;
+}
+nav ul{
+    text-align: center;
+}
+
+
