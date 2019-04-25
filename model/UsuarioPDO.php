@@ -33,8 +33,8 @@ class UsuarioPDO implements UsuarioDB {
             $aFecha['T01_FechaHoraUltimaConexion'] = $datos->T01_FechaHoraUltimaConexion;
             $aFecha['T01_DescUsuario'] = $datos->T01_DescUsuario;
         }
-        $sql = 'update Usuario set Visitas = Visitas + 1, FechaUltimaConexion = ? where CodUsuario = ?';
-        $consulta = DBPDO::ejecutarConsulta($sql, [$fecha->getTimestamp(),$CodUsuario]);
+        $sql1 = 'update T01_Usuarios1 set T01_NumAccesos = T01_NumAccesos + 1, T01_FechaHoraUltimaConexion = ? where T01_CodUsuario = ?';
+        $consulta1 = DBPDO::ejecutarConsulta($sql1, [$fecha->getTimestamp(),$CodUsuario]);
         return $aFecha;
     }
 

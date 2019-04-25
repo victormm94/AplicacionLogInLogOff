@@ -46,7 +46,7 @@ if (isset($_POST['Aceptar']) && $entradaOK) {
     } else {
         $_SESSION['usuarioDAW208'] = $usuario;
         $_SESSION['pagina'] = 'inicio';
-        $_SESSION['visitas'] = $usuario->registrarUltimaConexion();
+        $_SESSION['visitas'] = $usuario->registrarUltimaConexion();   
         header('Location: index.php');
         exit;
     }
