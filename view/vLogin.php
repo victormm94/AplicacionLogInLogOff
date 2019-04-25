@@ -45,7 +45,7 @@ and open the template in the editor.
                 </div>  
                 <input class="btn btn-primary" type="submit" name="Aceptar" value="Aceptar">
                 <input class="btn btn-primary" type="button" name="Salir" value="Salir" onclick="location = '../indexProyectoDWES.html'">
-                <input class="btn btn-primary" type="button" name="Registro" value="Registro" onclick="location = 'registro.php'">
+                <input class="btn btn-primary" type="submit" name="Registro" value="Registro">
             </div>
         </form>         
     </body>

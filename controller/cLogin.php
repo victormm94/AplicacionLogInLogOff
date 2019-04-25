@@ -34,6 +34,12 @@ if (isset($_POST['Aceptar'])) {
     }
 }
 
+if (isset($_POST['Registro'])) {
+    $_SESSION['pagina'] = 'wip';
+    Header("Location: index.php");
+    exit;
+}
+
 if (isset($_POST['Aceptar']) && $entradaOK) {
 
     $aFormulario['usuario'] = $_POST['usuario'];
@@ -46,11 +52,12 @@ if (isset($_POST['Aceptar']) && $entradaOK) {
     } else {
         $_SESSION['usuarioDAW208'] = $usuario;
         $_SESSION['pagina'] = 'inicio';
-        $_SESSION['visitas'] = $usuario->registrarUltimaConexion();   
+        $_SESSION['visitas'] = $usuario->registrarUltimaConexion();
         header('Location: index.php');
         exit;
     }
 }
+
 $_SESSION['pagina'] = 'login';
 require_once $vistas["layout"];
 ?>

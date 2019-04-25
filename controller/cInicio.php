@@ -20,6 +20,12 @@ if (isset($_POST['Cerrar_Sesion'])) { //si le damos a cerrar sesion destruira la
     exit;
 }
 
+if (isset($_POST['ListarUsuarios'])) {
+    $_SESSION['pagina'] = 'wip';
+    Header("Location: index.php");
+    exit;
+}
+
 if (isset($_POST['Detalle'])) {
     $_SESSION['pagina'] = 'wip';
     Header("Location: index.php");
