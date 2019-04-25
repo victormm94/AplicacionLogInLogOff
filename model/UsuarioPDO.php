@@ -7,9 +7,15 @@ require_once 'config/configuracion.php';
 class UsuarioPDO implements UsuarioDB {
 
     public static function validarUsuario($CodUsuario, $Password) {
-        $aUsuario = [];
+        $aUsuario = ['T01_CodUsuario' => null,
+            'T01_Password' => null,
+            'T01_DescUsuario' => null,
+            'T01_Perfil' => null,
+            'T01_NumAccesos' => null,
+            'T01_FechaHoraUltimaConexion' => null
+        ];
         $sql = 'select * from T01_Usuarios1 where T01_CodUsuario = ? and T01_Password = SHA2(?, 256)';
-        $consulta = DBPDO::ejecutarConsulta($sql,[$CodUsuario,$Password]);   
+        $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario, $Password]);
         if ($consulta->rowCount() == 1) {
             $datos = $consulta->fetchObject();
             $aUsuario['T01_CodUsuario'] = $datos->T01_CodUsuario;
@@ -23,7 +29,10 @@ class UsuarioPDO implements UsuarioDB {
     }
 
     public function registrarUltimaConexion($CodUsuario) {
-        $aFecha = [];
+        $aFecha = ['T01_NumAccesos' => null,
+            'T01_FechaHoraUltimaConexion' => null,
+            'T01_DescUsuario' => null
+        ];
         $fecha = new DateTime();
         $sql = 'select * from T01_Usuarios1 where T01_CodUsuario = ?';
         $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
@@ -33,8 +42,8 @@ class UsuarioPDO implements UsuarioDB {
             $aFecha['T01_FechaHoraUltimaConexion'] = $datos->T01_FechaHoraUltimaConexion;
             $aFecha['T01_DescUsuario'] = $datos->T01_DescUsuario;
         }
-        $sql1 = 'update T01_Usuarios1 set T01_NumAccesos = T01_NumAccesos + 1, T01_FechaHoraUltimaConexion = ? where T01_CodUsuario = ?';
-        $consulta1 = DBPDO::ejecutarConsulta($sql1, [$fecha->getTimestamp(),$CodUsuario]);
+        $sql = 'update T01_Usuarios1 set T01_NumAccesos = T01_NumAccesos + 1, T01_FechaHoraUltimaConexion = ? where T01_CodUsuario = ?';
+        $consulta = DBPDO::ejecutarConsulta($sql, [$fecha->getTimestamp(), $CodUsuario]);
         return $aFecha;
     }
 

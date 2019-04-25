@@ -93,7 +93,7 @@ class Usuario {
         $aNumAccesos = UsuarioPDO::registrarUltimaConexion($CodUsuario);
         $fecha = date('d-m-Y, H:i:s', $aNumAccesos['T01_FechaHoraUltimaConexion']);
         $numAccesos = $aNumAccesos['T01_NumAccesos'];
-        if ($numAccesos == 0) {
+        if ($numAccesos == 1) {
             $ultimaConexion = 'Bienvenido por primera vez, ' . $this->getCodUsuario() . '.';
         } else {
             $ultimaConexion = 'Hola ' . $this->getCodUsuario() . ', número de visitas anteriores ' . $this->getNumAccesos() . '.<br>Fecha de su ultimo acceso ' . $fecha . '.';

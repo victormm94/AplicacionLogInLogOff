@@ -9,11 +9,11 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>Programa</title>
         <link rel="stylesheet" href="webroot/estilos/estilosAñadir.css">
+        <link rel="stylesheet" href="webroot/estilos/bootstrap.css">
         <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
     </head>
-    <body>
-        <header><h1>Ventana de Programa</h1></header>
+    <body>        
         <?php
         /**
           @author: Victor Martinez Mielgo
@@ -26,19 +26,19 @@ and open the template in the editor.
                 <table class="busqueda">   
                     <tr>
                         <td>
-                            <p><?php echo $_SESSION['visitas'] ?></p>   
+                            <p style="text-align: center"><?php echo $_SESSION['visitas'] ?></p>   
                         </td>
                     </tr>
                     <tr>                   
                         <td>
                             <input class="btn btn-primary" type="submit" name="Cerrar_Sesion" value="Cerrar_Sesion" >   
-                            <input class="btn btn-primary" type="button" name="ListarUsuarios" value="ListarUsuarios" onclick="location = 'listarUsuarios.php'" >                                 
+                            <input class="btn btn-primary" type="submit" name="ListarUsuarios" value="ListarUsuarios" >                                 
                             <input class="btn btn-primary" type="submit" name="Detalle" value="Detalle"> 
                             <input class="btn btn-primary" type="submit" name="EditarPerfil" value="EditarPerfil"> 
                             <input class="btn btn-primary" type="submit" name="CambiarContraseña" value="CambiarContraseña"> 
                             <input class="btn btn-primary" type="submit" name="BorrarUsuario" value="BorrarUsuario"> 
                             <?php if ($_SESSION['usuarioDAW208']->getPerfil() == 'administrador') { ?>
-                                <input class="btn btn-primary" type="button" name="AdministrarUsuarios" value="AdministrarUsuarios" onclick="location = '../../MantenimientoTema5LoginLogoff/codigoPHP/index.php'">
+                                <input class="btn btn-primary" type="submit" name="AdministrarUsuarios" value="AdministrarUsuarios" >
                             <?php } ?>
                         </td>
                     </tr>
