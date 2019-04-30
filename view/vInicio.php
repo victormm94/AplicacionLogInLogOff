@@ -31,12 +31,9 @@ and open the template in the editor.
                     </tr>
                     <tr>                   
                         <td>
-                            <input class="btn btn-primary" type="submit" name="Cerrar_Sesion" value="Cerrar_Sesion" >   
-                            <input class="btn btn-primary" type="submit" name="ListarUsuarios" value="ListarUsuarios" >                                 
+                            <input class="btn btn-primary" type="submit" name="Cerrar_Sesion" value="Cerrar_Sesion" >
                             <input class="btn btn-primary" type="submit" name="Detalle" value="Detalle"> 
-                            <input class="btn btn-primary" type="submit" name="EditarPerfil" value="EditarPerfil"> 
-                            <input class="btn btn-primary" type="submit" name="CambiarContraseña" value="CambiarContraseña"> 
-                            <input class="btn btn-primary" type="submit" name="BorrarUsuario" value="BorrarUsuario"> 
+                            <input class="btn btn-primary" type="submit" name="EditarPerfil" value="EditarPerfil">  
                             <?php if ($_SESSION['usuarioDAW208']->getPerfil() == 'administrador') { ?>
                                 <input class="btn btn-primary" type="submit" name="AdministrarUsuarios" value="AdministrarUsuarios" >
                             <?php } ?>

@@ -2,18 +2,11 @@
 
 require_once 'model/DBPDO.php';
 require_once 'model/UsuarioDB.php';
-require_once 'config/configuracion.php';
 
 class UsuarioPDO implements UsuarioDB {
 
     public static function validarUsuario($CodUsuario, $Password) {
-        $aUsuario = ['T01_CodUsuario' => null,
-            'T01_Password' => null,
-            'T01_DescUsuario' => null,
-            'T01_Perfil' => null,
-            'T01_NumAccesos' => null,
-            'T01_FechaHoraUltimaConexion' => null
-        ];
+        $aUsuario = [];
         $sql = 'select * from T01_Usuarios1 where T01_CodUsuario = ? and T01_Password = SHA2(?, 256)';
         $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario, $Password]);
         if ($consulta->rowCount() == 1) {
@@ -28,11 +21,8 @@ class UsuarioPDO implements UsuarioDB {
         return $aUsuario;
     }
 
-    public function registrarUltimaConexion($CodUsuario) {
-        $aFecha = ['T01_NumAccesos' => null,
-            'T01_FechaHoraUltimaConexion' => null,
-            'T01_DescUsuario' => null
-        ];
+    public static function registrarUltimaConexion($CodUsuario) {
+        $aFecha = [];
         $fecha = new DateTime();
         $sql = 'select * from T01_Usuarios1 where T01_CodUsuario = ?';
         $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
@@ -45,6 +35,33 @@ class UsuarioPDO implements UsuarioDB {
         $sql = 'update T01_Usuarios1 set T01_NumAccesos = T01_NumAccesos + 1, T01_FechaHoraUltimaConexion = ? where T01_CodUsuario = ?';
         $consulta = DBPDO::ejecutarConsulta($sql, [$fecha->getTimestamp(), $CodUsuario]);
         return $aFecha;
+    }
+
+    public static function altaUsuario($CodUsuario, $DescUsuario, $Password) {
+        $aUsuario = [];
+        $fecha = new DateTime();
+        $sql = "INSERT INTO T01_Usuarios1(T01_CodUsuario,T01_DescUsuario,T01_Password,T01_Perfil,T01_NumAccesos,T01_FechaHoraUltimaConexion) VALUES (?, ?, SHA2(?, 256),'usuario, 1, ?)";
+        $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario, $DescUsuario, $Password, $fecha->getTimestamp()]);
+        if ($consulta->rowCount() == 1) {
+            $datos = $consulta->fetchObject();
+            $aUsuario['T01_CodUsuario'] = $datos->T01_CodUsuario;
+            $aUsuario['T01_Password'] = $datos->T01_Password;
+            $aUsuario['T01_DescUsuario'] = $datos->T01_DescUsuario;
+            $aUsuario['T01_Perfil'] = $datos->T01_Perfil;
+            $aUsuario['T01_NumAccesos'] = $datos->T01_NumAccesos;
+            $aUsuario['T01_FechaHoraUltimaConexion'] = $datos->T01_FechaHoraUltimaConexion;
+        }
+        return $aUsuario;
+    }
+
+    public static function validarCodNoExiste($CodUsuario) {
+        $existe = false;
+        $sql = 'select * from T01_Usuarios where T01_CodUsuario = ?';
+        $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
+        if ($consulta->rowCount() == 1) {
+            $existe = true;
+        }
+        return $existe;
     }
 
 }

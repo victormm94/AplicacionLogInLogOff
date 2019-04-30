@@ -21,6 +21,13 @@ $aErrores = ['usuario' => null,
     'password' => null,
     'error' => null
 ];
+
+if (isset($_POST['Registro'])) {
+    $_SESSION['pagina'] = 'registro';
+    Header("Location: index.php");
+    exit;
+}
+
 if (isset($_POST['Aceptar'])) {
 
     $aErrores['usuario'] = validacionFormularios::comprobarAlfabetico($_POST['usuario'], 255, 1, 1);
@@ -32,12 +39,6 @@ if (isset($_POST['Aceptar'])) {
             $_POST[$campo] = "";
         }
     }
-}
-
-if (isset($_POST['Registro'])) {
-    $_SESSION['pagina'] = 'wip';
-    Header("Location: index.php");
-    exit;
 }
 
 if (isset($_POST['Aceptar']) && $entradaOK) {
@@ -57,7 +58,6 @@ if (isset($_POST['Aceptar']) && $entradaOK) {
         exit;
     }
 }
-
 $_SESSION['pagina'] = 'login';
 require_once $vistas["layout"];
 ?>

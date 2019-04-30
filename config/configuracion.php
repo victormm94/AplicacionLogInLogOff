@@ -8,8 +8,6 @@
 define('mysql', 'mysql:host=192.168.20.19;dbname=DAW208_DBMantenimientoTema6');
 define('usuario', 'DAW208MantenimientoTema6');
 define('pass', 'paso');
-
-
 ?>
 
 

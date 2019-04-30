@@ -20,12 +20,6 @@ if (isset($_POST['Cerrar_Sesion'])) { //si le damos a cerrar sesion destruira la
     exit;
 }
 
-if (isset($_POST['ListarUsuarios'])) {
-    $_SESSION['pagina'] = 'wip';
-    Header("Location: index.php");
-    exit;
-}
-
 if (isset($_POST['Detalle'])) {
     $_SESSION['pagina'] = 'wip';
     Header("Location: index.php");
@@ -37,19 +31,6 @@ if (isset($_POST['EditarPerfil'])) {
     Header("Location: index.php");
     exit;
 }
-
-if (isset($_POST['CambiarContraseña'])) {
-    $_SESSION['pagina'] = 'wip';
-    Header("Location: index.php");
-    exit;
-}
-
-if (isset($_POST['BorrarUsuario'])) {
-    $_SESSION['pagina'] = 'wip';
-    Header("Location: index.php");
-    exit;
-}
-
 if (!isset($_SESSION['usuarioDAW208'])) {
     header('Location: index.php');
 } else {

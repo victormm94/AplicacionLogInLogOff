@@ -1,5 +1,7 @@
 <?php
 
+require_once 'config/configuracion.php';
+
 class DBPDO {
 
     public static function ejecutarConsulta($sentencia, $parametros) {

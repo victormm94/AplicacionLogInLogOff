@@ -26,7 +26,7 @@
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">      
             <div class="imagen">
                 <h1>WORK IN PROGRESS</h1>
-                <h3>Estamos trabajando esta pagina. Disculpa las molestias</h3>
+                <h3>Estamos trabajando en esta pagina. Disculpad las molestias</h3>
                 <img src="webroot/images/pikachu.jpg">
             </div> 
             <div class="imagen">

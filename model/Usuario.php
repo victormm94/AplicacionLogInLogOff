@@ -101,4 +101,26 @@ class Usuario {
         return $ultimaConexion;
     }
 
+    public static function altaUsuario($CodUsuario, $Password, $DescUsuario) {
+        $usuario = null;
+        $aUsuario = UsuarioPDO::validarUsuario($CodUsuario, $Password, $DescUsuario);
+        if (!empty($aUsuario)) {
+            $usuario = new Usuario($CodUsuario, $Password, $DescUsuario, $aUsuario['T01_Perfil'], $aUsuario['T01_NumAccesos'], $aUsuario['T01_FechaHoraUltimaConexion']);
+        }
+        return $usuario;
+    }
+
+    public function modificarUsuario() {
+        
+    }
+
+    public function borrarUsuario() {
+        
+    }
+
+    public static function validarCodNoExiste($CodUsuario) {
+        $existe = UsuarioPDO::validarCodNoExiste($CodUsuario);
+        return $existe;
+    }
+
 }

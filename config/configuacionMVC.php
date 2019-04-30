@@ -8,14 +8,16 @@ $controladores = [
     'login' => 'controller/cLogin.php',
     'inicio' => 'controller/cInicio.php',
     'wip' => 'controller/cWIP.php',
-    'error' => 'controller/cError.php'
+    'error' => 'controller/cError.php',
+    'registro' => 'controller/cRegistro.php'
 ];
 $vistas = [
     'layout' => 'view/layout.php',
     'inicio' => 'view/vInicio.php',
     'login' => 'view/vLogin.php',
     'wip' => 'view/vWIP.php',
-    'error' => 'view/vError.php'
+    'error' => 'view/vError.php',
+    'registro' => 'view/vRegistro.php'
 ];
 ?>
 
