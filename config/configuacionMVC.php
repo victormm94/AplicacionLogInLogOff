@@ -9,7 +9,9 @@ $controladores = [
     'inicio' => 'controller/cInicio.php',
     'wip' => 'controller/cWIP.php',
     'error' => 'controller/cError.php',
-    'registro' => 'controller/cRegistro.php'
+    'registro' => 'controller/cRegistro.php',
+    'miCuenta' => 'controller/cMiCuenta.php',
+    'borrarCuenta' => 'controller/cBorrarCuenta.php'
 ];
 $vistas = [
     'layout' => 'view/layout.php',
@@ -17,7 +19,9 @@ $vistas = [
     'login' => 'view/vLogin.php',
     'wip' => 'view/vWIP.php',
     'error' => 'view/vError.php',
-    'registro' => 'view/vRegistro.php'
+    'registro' => 'view/vRegistro.php',
+    'miCuenta' => 'view/vMiCuenta.php',
+    'borrarCuenta' => 'view/vBorrarCuenta.php'
 ];
 ?>
 

@@ -33,10 +33,7 @@ and open the template in the editor.
                         <td>
                             <input class="btn btn-primary" type="submit" name="Cerrar_Sesion" value="Cerrar_Sesion" >
                             <input class="btn btn-primary" type="submit" name="Detalle" value="Detalle"> 
-                            <input class="btn btn-primary" type="submit" name="EditarPerfil" value="EditarPerfil">  
-                            <?php if ($_SESSION['usuarioDAW208']->getPerfil() == 'administrador') { ?>
-                                <input class="btn btn-primary" type="submit" name="AdministrarUsuarios" value="AdministrarUsuarios" >
-                            <?php } ?>
+                            <input class="btn btn-primary" type="submit" name="MiCuenta" value="MiCuenta">  
                         </td>
                     </tr>
                 </table> 

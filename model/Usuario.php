@@ -1,6 +1,6 @@
 <?php
 
-require_once 'UsuarioPDO.php';
+require_once 'model/UsuarioPDO.php';
 
 class Usuario {
 
@@ -110,12 +110,24 @@ class Usuario {
         return $usuario;
     }
 
-    public function modificarUsuario() {
-        
+    public function modificarUsuario($Password, $DescUsuario, $Perfil) {
+        $codUsuario = $this->getCodUsuario();
+        $usuario = null;
+        if ($Perfil == null) {
+            $aUsuario = UsuarioPDO::modificarUsuario($codUsuario, $Password, $DescUsuario);
+        } else {
+            $aUsuario = UsuarioPDO::modificarCuenta($codUsuario, $Password, $DescUsuario, $Perfil);
+        }
+        if (!empty($aUsuario)) {
+            $usuario = new Usuario($aUsuario['T01_CodUsuario'], $aUsuario['T01_Password'], $aUsuario['T01_DescUsuario'], $aUsuario['T01_Perfil'], $aUsuario['T01_NumAccesos'], $aUsuario['T01_FechaHoraUltimaConexion']);
+        }
+        return $usuario;
     }
 
     public function borrarUsuario() {
-        
+        $CodUsuario = $this->getCodUsuario();
+        $borrarUsuario = UsuarioPDO::borrarUsuario($CodUsuario);
+        return $borrarUsuario;
     }
 
     public static function validarCodNoExiste($CodUsuario) {

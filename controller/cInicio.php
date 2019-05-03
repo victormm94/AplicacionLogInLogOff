@@ -9,13 +9,8 @@
 
 <?php
 
-if (!isset($_SESSION['usuarioDAW208'])) {
-    Header("Location: login.php");
-}
-
-if (isset($_POST['Cerrar_Sesion'])) { //si le damos a cerrar sesion destruira la sesion
-    unset($_SESSION['usuarioDAW208']);
-    session_destroy();
+if (isset($_POST['MiCuenta'])) {
+    $_SESSION['pagina'] = 'miCuenta';
     Header("Location: index.php");
     exit;
 }
@@ -26,11 +21,13 @@ if (isset($_POST['Detalle'])) {
     exit;
 }
 
-if (isset($_POST['EditarPerfil'])) {
-    $_SESSION['pagina'] = 'wip';
+if (isset($_POST['Cerrar_Sesion'])) { //si le damos a cerrar sesion destruira la sesion
+    unset($_SESSION['usuarioDAW208']);
+    session_destroy();
     Header("Location: index.php");
     exit;
 }
+
 if (!isset($_SESSION['usuarioDAW208'])) {
     header('Location: index.php');
 } else {

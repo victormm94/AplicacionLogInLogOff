@@ -56,12 +56,48 @@ class UsuarioPDO implements UsuarioDB {
 
     public static function validarCodNoExiste($CodUsuario) {
         $existe = false;
-        $sql = 'select * from T01_Usuarios where T01_CodUsuario = ?';
+        $sql = 'select * from T01_Usuarios1 where T01_CodUsuario = ?';
         $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
         if ($consulta->rowCount() == 1) {
             $existe = true;
         }
         return $existe;
+    }
+
+    public static function modificarUsuario($CodUsuario, $Password, $DescUsuario) {
+        $aUsuario = [];
+        if ($DescUsuario != NULL) {
+            $sql = 'update T01_Usuarios1 set T01_DescUsuario = ? where T01_CodUsuario = ?';
+            $consulta = DBPDO::ejecutarConsulta($sql, [$DescUsuario, $CodUsuario]);
+        }
+        if ($consulta->rowCount() == 1) {
+            $sql = 'select * from T01_Usuarios1 where T01_CodUsuario=?';
+            $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
+            if ($consulta->rowCount() == 1) {
+                $datos = $consulta->fetchObject();
+                $aUsuario['T01_CodUsuario'] = $datos->T01_CodUsuario;
+                $aUsuario['T01_Password'] = $datos->T01_Password;
+                $aUsuario['T01_DescUsuario'] = $datos->T01_DescUsuario;
+                $aUsuario['T01_Perfil'] = $datos->T01_Perfil;
+                $aUsuario['T01_NumAccesos'] = $datos->T01_NumAccesos;
+                $aUsuario['T01_FechaHoraUltimaConexion'] = $datos->T01_FechaHoraUltimaConexion;
+            }
+        }
+        return $aUsuario;
+    }
+
+    public function borrarUsuario($CodUsuario) {
+        $borrarUsuario = false;
+        $sql = 'delete from T01_Usuarios1 where T01_CodUsuario = ?';
+        $consulta = DBPDO::ejecutaConsulta($sql, [$CodUsuario]);
+        if ($consulta->rowCount() == 1) {
+            $borrarUsuario = true;
+        }
+        return $borrarUsuario;
+    }
+
+    public function modificarCuenta($CodUsuario, $Password, $DescUsuario, $Perfil) {
+        
     }
 
 }

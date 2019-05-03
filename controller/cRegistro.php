@@ -12,9 +12,10 @@ $aErrores = ['usuario' => null,
     'descripcion' => null
 ];
 
-if (isset($_POST['Volver'])) {
+if (isset($_REQUEST['Volver'])) {
     $_SESSION['pagina'] = 'login';
     header('Location: index.php');
+    exit;
 }
 
 if (isset($_POST['Aceptar'])) {
@@ -39,13 +40,13 @@ if (isset($_POST['Aceptar'])) {
 if (isset($_POST['Aceptar']) && $entradaOK) {
 
     $aFormulario['usuario'] = $_POST['usuario'];
-    $aFormulario['password'] = $password;
+    $aFormulario['password'] = $_POST['password'];
     $aFormulario['descripcion'] = $_POST['descripcion'];
 
     $usuario = Usuario::altaUsuario($aFormulario['usuario'], $aFormulario['password'], $aFormulario['descripcion']);
     $_SESSION['usuarioDAW208'] = $usuario;
-    $_SESSION['visitas'] = $usuario->registrarUltimaConexion();
     $_SESSION['pagina'] = 'inicio';
+    $_SESSION['visitas'] = $usuario->registrarUltimaConexion();
     header('Location: index.php');
 } else {
     $_SESSION['pagina'] = 'registro';
