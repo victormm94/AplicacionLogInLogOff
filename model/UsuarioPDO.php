@@ -40,16 +40,14 @@ class UsuarioPDO implements UsuarioDB {
     public static function altaUsuario($CodUsuario, $DescUsuario, $Password) {
         $aUsuario = [];
         $fecha = new DateTime();
-        $sql = "INSERT INTO T01_Usuarios1(T01_CodUsuario,T01_DescUsuario,T01_Password,T01_Perfil,T01_NumAccesos,T01_FechaHoraUltimaConexion) VALUES (?, ?, SHA2(?, 256),'usuario, 1, ?)";
+        $sql = "INSERT INTO T01_Usuarios1(T01_CodUsuario,T01_DescUsuario,T01_Password,T01_Perfil,T01_NumAccesos,T01_FechaHoraUltimaConexion) VALUES (?, ?, SHA2(?, 256),'usuario', 1, ?)";
         $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario, $DescUsuario, $Password, $fecha->getTimestamp()]);
         if ($consulta->rowCount() == 1) {
-            $datos = $consulta->fetchObject();
-            $aUsuario['T01_CodUsuario'] = $datos->T01_CodUsuario;
-            $aUsuario['T01_Password'] = $datos->T01_Password;
-            $aUsuario['T01_DescUsuario'] = $datos->T01_DescUsuario;
-            $aUsuario['T01_Perfil'] = $datos->T01_Perfil;
-            $aUsuario['T01_NumAccesos'] = $datos->T01_NumAccesos;
-            $aUsuario['T01_FechaHoraUltimaConexion'] = $datos->T01_FechaHoraUltimaConexion;
+            $aUsuario['T01_CodUsuario'] = $CodUsuario;            
+            $aUsuario['T01_DescUsuario'] = $DescUsuario;
+            $aUsuario['T01_Password'] = $Password;
+            $aUsuario['T01_Perfil'] = 'usuario';            
+            $aUsuario['T01_FechaHoraUltimaConexion'] = $fecha->getTimestamp();
         }
         return $aUsuario;
     }

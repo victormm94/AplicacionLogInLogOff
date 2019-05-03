@@ -43,7 +43,7 @@ if (isset($_POST['Aceptar']) && $entradaOK) {
     $aFormulario['password'] = $_POST['password'];
     $aFormulario['descripcion'] = $_POST['descripcion'];
 
-    $usuario = Usuario::altaUsuario($aFormulario['usuario'], $aFormulario['password'], $aFormulario['descripcion']);
+    $usuario = Usuario::altaUsuario($aFormulario['usuario'], $aFormulario['descripcion'], $aFormulario['password']);
     $_SESSION['usuarioDAW208'] = $usuario;
     $_SESSION['pagina'] = 'inicio';
     $_SESSION['visitas'] = $usuario->registrarUltimaConexion();

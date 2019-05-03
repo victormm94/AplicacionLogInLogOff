@@ -42,7 +42,7 @@ if (isset($_POST['CambiarDescripcion']) && $entradaOK) {
     $usuario = $_SESSION['usuarioDAW208'];
 
     if ($aFormulario['descripcion'] != $_SESSION['usuarioDAW208']->getDescUsuario()) {
-        $usuario = $usuario->modificarUsuario($_SESSION['usuarioDAW208']->getCodUsuario(), $_SESSION['usuarioDAW208']->getPassword(), $aFormulario['descripcion']);
+        $usuario = $usuario->modificarUsuario($_SESSION['usuarioDAW208']->getPassword(), $aFormulario['descripcion'], null);
         $_SESSION['usuarioDAW208'] = $usuario;
     }
     $_SESSION['pagina'] = 'inicio';

@@ -103,9 +103,9 @@ class Usuario {
 
     public static function altaUsuario($CodUsuario, $Password, $DescUsuario) {
         $usuario = null;
-        $aUsuario = UsuarioPDO::validarUsuario($CodUsuario, $Password, $DescUsuario);
+        $aUsuario = UsuarioPDO::altaUsuario($CodUsuario, $Password, $DescUsuario);
         if (!empty($aUsuario)) {
-            $usuario = new Usuario($CodUsuario, $Password, $DescUsuario, $aUsuario['T01_Perfil'], $aUsuario['T01_NumAccesos'], $aUsuario['T01_FechaHoraUltimaConexion']);
+            $usuario = new Usuario($CodUsuario, $DescUsuario, $Password, $aUsuario['T01_Perfil'], $aUsuario['T01_NumAccesos'], $aUsuario['T01_FechaHoraUltimaConexion']);
         }
         return $usuario;
     }
