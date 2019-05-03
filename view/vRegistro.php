@@ -52,7 +52,7 @@ and open the template in the editor.
                     ?>">
                 </div>  
                 <?php if ($aErrores['usuario'] != null) { ?>
-                    <div class = "alert alert-dismissible alert-danger">
+                    <div class = "alert alert-dismissible alert-primary">
                         <?php echo $aErrores['usuario']; ?>
                     </div>
                 <?php }
