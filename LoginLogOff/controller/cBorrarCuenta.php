@@ -15,6 +15,9 @@ if (isset($_REQUEST['Cancelar'])) {
     $_SESSION['pagina'] = 'miCuenta';
     header('Location: index.php');
     exit;
+} else {
+    $_SESSION['pagina'] = 'borrarCuenta';
+    require_once $vistas["layout"];
 }
 ?>
 

@@ -87,7 +87,7 @@ class UsuarioPDO implements UsuarioDB {
     public function borrarUsuario($CodUsuario) {
         $borrarUsuario = false;
         $sql = 'delete from T01_Usuarios1 where T01_CodUsuario = ?';
-        $consulta = DBPDO::ejecutaConsulta($sql, [$CodUsuario]);
+        $consulta = DBPDO::ejecutarConsulta($sql, [$CodUsuario]);
         if ($consulta->rowCount() == 1) {
             $borrarUsuario = true;
         }

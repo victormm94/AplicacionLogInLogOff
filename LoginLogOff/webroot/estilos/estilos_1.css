@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 28-mar-2019, 11:51:18
+    Created on : 28-mar-2019, 10:09:35
     Author     : daw2
 */
 
@@ -15,8 +15,16 @@ header h1{
     text-align: center;
     font-family: 'Germania One', cursive;    
 }
-.contenedor{
-    display: flex;
-    justify-content: center;
-    margin-top: 5%;
+.contenedorBusqueda{
+    text-align: center;
+}
+#tablaMuestra{
+    text-align: center;    
+}
+#tablaMuestra thead{
+    background-color: #ec4f4f;
+}
+#tablaMuestra tbody{
+    background-color: #4ac4e7; 
+    color: white;
 }

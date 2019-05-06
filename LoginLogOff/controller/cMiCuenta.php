@@ -19,9 +19,10 @@ if (isset($_POST['CambiarPassword'])) {
     header('Location: index.php');
 }
 
-if (isset($_POST['BorrarCuenta'])) {
+if (isset($_REQUEST['BorrarCuenta'])) {
     $_SESSION['pagina'] = 'borrarCuenta';
     header('Location: index.php');
+    exit;
 }
 
 if (isset($_POST['CambiarDescripcion'])) {
