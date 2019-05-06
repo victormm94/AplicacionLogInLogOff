@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-if (isset($_REQUEST['Volver'])) {  
-    $_SESSION['pagina'] = 'inicio';
+if (isset($_REQUEST['Volver'])) {    
+    $_SESSION['pagina'] = $_SESSION['paginaAnterior'];
     header("Location: index.php"); 
     exit;
 }

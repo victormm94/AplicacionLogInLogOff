@@ -12,6 +12,7 @@ if (isset($_POST['Aceptar'])) {
 }
 
 if (isset($_REQUEST['Cancelar'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['pagina'];
     $_SESSION['pagina'] = 'miCuenta';
     header('Location: index.php');
     exit;

@@ -16,6 +16,7 @@ if (isset($_POST['MiCuenta'])) {
 }
 
 if (isset($_POST['Detalle'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['pagina'];
     $_SESSION['pagina'] = 'wip';
     Header("Location: index.php");
     exit;

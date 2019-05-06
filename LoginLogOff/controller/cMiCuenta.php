@@ -8,15 +8,17 @@ $aFormulario = ['descripcion' => null
 $aErrores = ['descripcion' => null
 ];
 
-if (isset($_REQUEST['Volver'])) {
+if (isset($_REQUEST['Volver'])) {    
     $_SESSION['pagina'] = 'inicio';
     header('Location: index.php');
     exit;
 }
 
 if (isset($_POST['CambiarPassword'])) {
+    $_SESSION['paginaAnterior'] = $_SESSION['pagina'];
     $_SESSION['pagina'] = 'wip';
     header('Location: index.php');
+    exit;
 }
 
 if (isset($_REQUEST['BorrarCuenta'])) {
