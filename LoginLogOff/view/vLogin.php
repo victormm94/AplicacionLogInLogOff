@@ -30,7 +30,7 @@ and open the template in the editor.
                 <div class="form-group">
                     <label for="exampleInputUsuario">Usuario</label>
                     <input type="text" class="form-control" id="exampleInputUsuario" aria-describedby="emailHelp" placeholder="Enter Usuario" name="usuario" value="<?php
-                    if (isset($_POST['usuario']) && is_null($_POST['usuario'])) {
+                    if (isset($_POST['usuario']) && is_null($aErrores['usuario'])) {
                         echo $_POST['usuario'];
                     }
                     ?>">                    
@@ -38,7 +38,7 @@ and open the template in the editor.
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password" name="password" value="<?php
-                    if (isset($_POST['password']) && is_null($_POST['password'])) {
+                    if (isset($_POST['password'])) {
                         echo $_POST['password'];
                     }
                     ?>">
