@@ -3,6 +3,7 @@
 require_once 'config/configuracion.php';
 require_once 'core/181025validacionFormularios.php';
 require_once 'model/Usuario.php';
+require_once 'model/Rest.php';   
 
 $controladores = [
     'login' => 'controller/cLogin.php',

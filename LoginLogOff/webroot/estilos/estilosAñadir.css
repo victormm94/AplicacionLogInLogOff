@@ -20,3 +20,9 @@ header h1{
     justify-content: center;
     margin-top: 5%;
 }
+footer{   
+    position: absolute;
+    width: 100%;
+    bottom: 0px;   
+    
+}
