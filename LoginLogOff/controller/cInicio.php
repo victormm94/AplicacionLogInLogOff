@@ -15,6 +15,12 @@ if (isset($_POST['MiCuenta'])) {
     exit;
 }
 
+if (isset($_POST['REST'])) {
+    $_SESSION['pagina'] = 'REST';
+    Header("Location: index.php");
+    exit;
+}
+
 if (isset($_POST['Detalle'])) {
     $_SESSION['paginaAnterior'] = $_SESSION['pagina'];
     $_SESSION['pagina'] = 'wip';

@@ -33,7 +33,8 @@ and open the template in the editor.
                         <td>
                             <input class="btn btn-primary" type="submit" name="Cerrar_Sesion" value="Cerrar_Sesion" >
                             <input class="btn btn-primary" type="submit" name="Detalle" value="Detalle"> 
-                            <input class="btn btn-primary" type="submit" name="MiCuenta" value="MiCuenta">  
+                            <input class="btn btn-primary" type="submit" name="MiCuenta" value="MiCuenta">
+                            <input class="btn btn-primary" type="submit" name="REST" value="REST">  
                         </td>
                     </tr>
                 </table> 
