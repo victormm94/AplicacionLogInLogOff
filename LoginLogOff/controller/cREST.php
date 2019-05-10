@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/RestIP.php';
+require_once 'model/Rest.php';
 
 $entradaOK = true;
 
@@ -30,7 +30,7 @@ if (isset($_REQUEST['Volver'])) {
 $_SESSION['IPDaw208'] = '';
 
 if (isset($_POST['Aceptar'])) {
-    $IP = paisIP::nacionalidadIP($_POST['ip']);
+    $IP = Rest::nacionalidadIP($_POST['ip']);
     $_SESSION['IPDaw208'] = $IP;
     //$datosIP = $IP;
 }

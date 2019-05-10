@@ -1,14 +1,18 @@
 <?php
 
-    class fuentesGoogle{
-        
-        public static function buscarFuentesPorId($id){
-            $key = 'AIzaSyCTEetkf36B74CBhNHVH253nTXcEPcgmIk ';
-            
-            $json = file_get_contents('https://www.googleapis.com/webfonts/v1/webfonts?key='.$key);
-            
-        }  
-    }
+class Rest {
 
+    public static function nacionalidadIP($ip) {
+        $jsonIP = file_get_contents('https://api.ip2country.info/ip?' . $ip);
+        $paisIP = json_decode($jsonIP, true);
+
+        $consulta = 'Codigo del Pais: ' . $paisIP['countryCode'] . '<br>' .
+                'Codigo del Pais 3 letras: ' . $paisIP['countryCode3'] . '<br>' .
+                'Nombre del Pais: ' . $paisIP['countryName'] . '<br>' .
+                'Emoji: ' . $paisIP['countryEmoji'];
+
+        return $consulta;
+    }
+}
 ?>
 
